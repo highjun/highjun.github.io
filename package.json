@@ -9,7 +9,8 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "publish": "next build && node ./scripts/generate-sitemap && next export && touch out/.nojekyll && git add out/ && git commit -m 'deploy' && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.2",
@@ -63,10 +64,10 @@
     "socket.io-client": "^4.4.0"
   },
   "lint-staged": {
-    "*.+(js|jsx|ts|tsx)": [
+    "!(out/**/*)*.+(js|jsx|ts|tsx)": [
       "eslint --fix"
     ],
-    "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
+    "!(out/**/*)*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
     ]
   }
