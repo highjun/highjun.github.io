@@ -101,7 +101,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
           <div className="fixed top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-35rem))] z-20 hidden w-[19.5rem] overflow-y-auto py-10 px-6 xl:block">
             <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">
               <div>Table of Contents</div>
-              <TOCInline toc={toc} toHeading={2} />
+              <TOCInline toc={toc} toHeading={3} />
             </div>
           </div>
         </div>
