@@ -1,0 +1,27 @@
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: #444;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerCenter {
+    width: 1170px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.navMenus{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 30px;
+
+    text-transform: capitalize;
+    color: #FFF;
+}
