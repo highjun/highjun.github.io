@@ -2,16 +2,25 @@
   "name": "highjun.github.io",
   "version": "0.1.0",
   "private": false,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node tests/index.js"
   },
   "dependencies": {
-    "mdx-bundler": "9.2.1",
+    "js-yaml": "^4.1.0",
+    "mdx-bundler": "^9.2.1",
     "next": "13.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "rehype-stringify": "^9.0.3",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.2",
+    "unist-util-visit": "^4.1.2"
   }
 }
