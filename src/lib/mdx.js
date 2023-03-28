@@ -1,4 +1,6 @@
 import { bundleMDX } from "mdx-bundler";
+import { rehypeKatex } from "./rehype";
+import { remarkTOC, remarkCitation, remarkGfm} from './remark'
 
 
 async function convertMDToHTML(source){
@@ -12,22 +14,13 @@ async function convertMDToHTML(source){
           // plugins in the future.
           options.remarkPlugins = [
             ...(options.remarkPlugins ?? []),
-            remarkExtractFrontmatter,
-            [remarkTocHeadings, { exportRef: toc }],
+            [remarkTOC, {exportRef : toc}],
+            [remarkCitation, {externalBibTeX: bibtex }],
             remarkGfm,
-            remarkCodeTitles,
-            [remarkFootnotes, { inlineNotes: true }],
-            remarkMath,
-            remarkImgToJsx,
           ]
           options.rehypePlugins = [
             ...(options.rehypePlugins ?? []),
-            rehypeSlug,
-            rehypeAutolinkHeadings,
-            rehypeKatex,
-            [rehypeCitation, { path: path.join(root, 'data') }],
-            [rehypePrismPlus, { ignoreMissing: true }],
-            rehypePresetMinify,
+            [rehypeKatex, {externalTex: tex}]
           ]
           return options
         },
