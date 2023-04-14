@@ -1,5 +1,9 @@
 import fs from 'fs'
 
+const getFiles = (dir) => {
+    return fs.readdirSync(dir)
+}
+
 const parseBibTeX = (path) => {
     const data = fs.readFileSync(path, "UTF-8");
     const entries = data.split("\n@");
@@ -52,4 +56,4 @@ const parseCustomCommands = (tex) => {
     return macros;
 }
 
-export { parseBibTeX, formatBibTeX, parseCustomCommands };
+export { parseBibTeX, formatBibTeX, parseCustomCommands, getFiles };

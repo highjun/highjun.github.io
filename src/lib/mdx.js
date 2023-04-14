@@ -1,47 +1,45 @@
 import { bundleMDX } from "mdx-bundler";
-import { rehypeKatex } from "./rehype";
-import { remarkTOC, remarkCitation, remarkGfm} from './remark'
+// import { rehypeKatex, rehypePrismPlus } from "./rehype";
+import rehypePrism from 'rehype-prism-plus'
+import rehypeSlug from "rehype-slug";
+import { remarkTOC, remarkGfm, remarkVis} from './remark'
+import fs from 'fs'
 
-
-async function convertMDToHTML(source){
+async function customBundleMDX(file_path){
+    const content = fs.readFileSync(file_path, "utf8")
+    const slug = file_path.split("/")[2].replace(".md","")
+    let toc = [];
     const {code, frontmatter} = await bundleMDX({
-        source,
+        source: content,
         // mdx imports can be automatically source from the components directory
-        cwd: path.join(root, 'components'),
-        xdmOptions(options, frontmatter) {
+        // cwd: path.join(process.cwd(),"src", 'components'),
+        xdmOptions(options) {
           // this is the recommended way to add custom remark/rehype plugins:
           // The syntax might look weird, but it protects you in case we add/remove
           // plugins in the future.
           options.remarkPlugins = [
             ...(options.remarkPlugins ?? []),
-            [remarkTOC, {exportRef : toc}],
-            [remarkCitation, {externalBibTeX: bibtex }],
-            remarkGfm,
+            // [remarkTOC, {exportRef : toc}],
+            // [remarkCitation, {externalBibTeX: bibtex }],
+            // remarkGfm,
           ]
           options.rehypePlugins = [
             ...(options.rehypePlugins ?? []),
-            [rehypeKatex, {externalTex: tex}]
+            rehypeSlug,
+            rehypePrism,
+            // [rehypeKatex, {externalTex: tex}],
           ]
           return options
         },
-        esbuildOptions: (options) => {
-          options.loader = {
-            ...options.loader,
-            '.js': 'jsx',
-          }
-          return options
-        },
       })
-    
       return {
         mdxSource: code,
         toc,
         frontMatter: {
-          readingTime: readingTime(code),
           slug: slug || null,
-          fileName: fs.existsSync(mdxPath) ? `${slug}.mdx` : `${slug}.md`,
           ...frontmatter,
-          date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
         },
       }
 }
+
+export default customBundleMDX

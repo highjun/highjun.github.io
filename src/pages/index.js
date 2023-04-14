@@ -1,4 +1,3 @@
-import styles from '@/styles/Home.module.css'
 import { getSortedBlogsData } from '@/lib/fetch'
 import PostCard from '@/components/PostCard'
 
@@ -9,12 +8,12 @@ export async function getStaticProps() {
 }
 
 
-export default function Home({ blogPosts}) {
+export default function Home({ blogPosts }) {
   return (
     <main>
       {
         blogPosts.map(post => {
-          return <PostCard post={post} key={post["id"]}/>
+          return <PostCard post={post} key={post["id"]} />
         })
       }
     </main>

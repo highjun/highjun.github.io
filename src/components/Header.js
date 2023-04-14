@@ -7,7 +7,7 @@ const Header = () => {
     return <header className={styles.header}>
         <div className={styles.headerCenter}>
         <nav className={styles.navMenus}>
-            {siteData.navPages.map(key => <Link href={`/${key}`} key={key}>{key}</   Link>)}
+            {siteData.navPages.map(key => <Link className={styles.navItem} href={`/${key}`} key={key}>{key}</   Link>)}
         </nav>
         </div>
         

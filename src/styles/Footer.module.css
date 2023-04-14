@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ddd;
 }
 
 .footerCenter {
@@ -12,6 +11,4 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 10px;
-
-    color: #333;
 }

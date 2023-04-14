@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { bundleMDX } from 'mdx-bundler';
 
 const blogsDirectory = path.join(process.cwd(), 'data', 'blogs');
 
