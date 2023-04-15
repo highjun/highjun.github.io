@@ -24,7 +24,6 @@ const PostCard = ({post}) => {
         </div>
     </article>
     </Link> 
-    
 }
 
 export default PostCard

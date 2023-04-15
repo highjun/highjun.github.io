@@ -11,11 +11,14 @@ export async function getStaticProps() {
 export default function Home({ blogPosts }) {
   return (
     <main>
-      {
+      {<p>
+        We are preparing blogs for hard!
+        </p>}
+      {/* {
         blogPosts.map(post => {
           return <PostCard post={post} key={post["id"]} />
         })
-      }
+      } */}
     </main>
   )
 }

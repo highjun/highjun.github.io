@@ -1,4 +1,7 @@
 const siteMeta = {
-    navPages: ["home", "about"]
+    navRoutes: {
+        "Home": "/",
+        "About": "/about"
+    }
 }
 export default siteMeta

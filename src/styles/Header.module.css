@@ -1,33 +1,96 @@
 .header {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     width: 100%;
-    height: 50px;
-    background-color: #333;
+    margin: auto;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    border-bottom: 1px solid #dfdfdf;
+    padding: .5rem 0;
 }
 
-.headerCenter {
-    width: 1170px;
-    margin: auto;
-
+.header_container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: var(--desktop-min-width);
+    width: calc(100vw - 30px);
 }
 
-.navMenus{
+.header_left {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    gap: 30px;
-
-    text-transform: capitalize;
+    justify-content: center;
+    align-items: center;
 }
-.navItem{
-    color: #ffffff;
+.header_icon {
+    height: 50px;
+    width: auto;
+    margin-right: 1rem;
+}
+.header_left span{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav .nav_item {
+    padding: 1rem 0.5rem;
+    color: black;
+    border-top: 3px solid #fff;
+}
+.nav .nav_item.active {
+    border-top: 3px solid var(--primary-active-color);
+}
+.nav .nav_item:hover{
     text-decoration: none;
+    border-top: 3px solid var(--primary-hover-color);
 }
-.navItem:hover{
-    text-decoration: underline;
+
+.header_mobile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.mobile_nav {
+    display: none;
+    border: none;
+    width: 1.5rem;
+}
+
+@media screen and (max-width: 480px) {
+    .header_container{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .nav{
+        /* position:absolute; */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        /* display: none; */
+    }
+    .mobile_nav{
+        display: block;
+        
+    }
+    .nav .nav_item.active{
+        border-top: none;
+    }
+    
 }
