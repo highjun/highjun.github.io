@@ -2,7 +2,7 @@
 title: 'New features in v1'
 date: '2021-02-01'
 keywords: ['next-js', 'tailwind', 'guide']
-isDraft: false
+isDraft: true
 image: "sample_20230220.webp"
 summary: "Sample Blog Post입니다.\n 확인용으로 써주세요!"
 length: "10 Min Read"
