@@ -11,8 +11,10 @@ length: "10 Min Read"
 ## Overview
 
 - [ ] CheckList?
+- [x] CheckList?
 
-$\frac{1}{3}$
+
+$$\frac{1}{3} \R$$
 
 A post on the new features introduced in v1.0. New features:
 

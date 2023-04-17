@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import customBundleMDX from './mdx';
 
-const blogsDirectory = path.join(process.cwd(), 'data', 'blogs');
+const blogsDirectory = path.join(process.cwd(), 'data', 'posts');
 
 // get blog posts from data file
 export function getSortedBlogsData() {
@@ -25,7 +25,6 @@ export function getSortedBlogsData() {
     };
   });
   allBlogsData = allBlogsData.filter(val => !val["isDraft"])
-  console.log(allBlogsData)
   // Sort posts by date
   return allBlogsData.sort((a, b) => a.date - b.date);
 }
@@ -35,4 +34,14 @@ export async function getBlogDataByID(id){
   const source = path.join(blogsDirectory, id+".md");
   const data = await customBundleMDX(source);
   return data
+}
+
+export function getAllPosts(){
+  let files = fs.readdirSync(blogsDirectory);
+  files =  files.filter((file) => {
+    const fileContents = fs.readFileSync(path.join(blogsDirectory, file), 'utf8');
+    const matterResult = matter(fileContents);
+    return !matterResult.data["isDraft"]
+  });
+  return files;
 }

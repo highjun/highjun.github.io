@@ -1,7 +1,8 @@
 import PageLayout from '@/components/PageLayout'
 
 import '@/styles/globals.css'
-// import '@/styles/prism.css'
+
+import '@/styles/prism.css'
 
 
 export default function App({ Component, pageProps }) {

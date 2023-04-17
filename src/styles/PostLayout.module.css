@@ -1,3 +1,9 @@
+.post{
+    width: calc(100vw - 30px);
+    max-width: var(--desktop-min-width);
+    margin: auto;
+}
+
 .post_header{
     margin: auto;
     display: flex;
@@ -8,11 +14,6 @@
     max-width: var(--desktop-min-width);
 }
 
-.post_main{
-    width: calc(100vw - 30px);
-    max-width: var(--desktop-min-width);
-    margin: auto;
-}
 
 .post_etc{
     display: flex;

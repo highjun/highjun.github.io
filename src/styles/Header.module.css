@@ -28,6 +28,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    
+    color: #000;
+}
+.header_mobile a:hover{
+    text-decoration: none;
 }
 
 .header_icon {

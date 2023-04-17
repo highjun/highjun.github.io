@@ -1,10 +1,6 @@
 import { bundleMDX } from "mdx-bundler";
-// import { rehypeKatex, rehypePrismPlus } from "./rehype";
-import rehypePrism from 'rehype-prism-plus'
-import rehypeSlug from "rehype-slug";
-import rehypeKatex from "rehype-katex";
-import { remarkTOC, remarkGfm, remarkVis } from './remark'
-import remarkMath from "remark-math";
+import { rehypePrism, rehypeKatex, rehypeSlug, rehypePresetMinify } from "./rehype";
+import { remarkTOC, remarkGfm, remarkMath } from './remark'
 import fs from 'fs'
 import path from 'path'
 
@@ -12,46 +8,34 @@ async function customBundleMDX(file_path) {
   const source = fs.readFileSync(file_path, "utf8")
   const slug = file_path.split("/")[2].replace(".md", "")
   let toc = [];
-
-  // https://github.com/kentcdodds/mdx-bundler#nextjs-esbuild-enoent
-  if (process.platform === 'win32') {
-    process.env.ESBUILD_BINARY_PATH = path.join(process.cwd(), 'node_modules', 'esbuild', 'esbuild.exe')
-  } else {
-    process.env.ESBUILD_BINARY_PATH = path.join(process.cwd(), 'node_modules', 'esbuild', 'bin', 'esbuild')
-  }
+  const tex = path.join("data", "customCommands.tex");
 
   const { code, frontmatter } = await bundleMDX({
     source,
-    // mdx imports can be automatically source from the components directory
-    // cwd: path.join(process.cwd(),"data", 'components'),
-    xdmOptions(options, frontmatter) {
+    mdxOptions(options, frontmatter) {
       options.remarkPlugins = [
         ...(options.remarkPlugins ?? []),
+        [remarkTOC, { exportRef: toc }], // parse the TOC
         remarkGfm, // add Github Flavor Markdown
-        remarkMath, //Parse Mathematical Equations,
-        remarkVis,
-        // [remarkTOC, {exportRef : toc}], // parse the TOC
-        // [remarkCitation, {externalBibTeX: bibtex }], // get reference info from Bibtex.
-
+        remarkMath, //Parse Mathematical Equations
       ]
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
-        // rehypeSlug, //Add ID to Headings: h1 ~ h6
-        // rehypePrism, // Prettier Code Formatter
-        // [rehypeKatex, {externalTex: tex}], 
+        rehypeSlug, //Add value as ID to Headings: h1 ~ h6
+        [rehypePrism, { ignoreMissing: true }], // Prettier Code Formatter
+        [rehypeKatex, { externalTex: tex }],
         // Transform Mathematical Equation to KaTeX, 
         //and apply custom command from external Tex
+        rehypePresetMinify
       ]
       return options
     },
-    esbuildOptions: (options) => {
-      options.loader = {
-        ...options.loader,
-        '.js': 'jsx',
-      }
+    esbuildOptions(options, frontmatter) {
+      options.minify = true
+      
       return options
     },
-  })
+  });
   return {
     mdxSource: code,
     toc,

@@ -1,13 +1,12 @@
-import { getFiles } from '@/lib/util'
 import { MDX } from '@/components/Basics'
-import { getBlogDataByID } from '@/lib/fetch'
+import { getAllPosts, getBlogDataByID } from '@/lib/fetch'
 import PostLayout from '@/components/PostLayout'
 import SEO from '@/components/SEO'
 
-const dir_name = 'data/blogs'
+const dir_name = 'data/posts'
 
 export async function getStaticPaths() {
-    const posts = getFiles(dir_name)
+    const posts = getAllPosts()
     return {
         paths: posts.map((post) => ({
             params: {
