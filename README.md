@@ -2,12 +2,16 @@
 
 ## TODOs
 
+Issues:
+- [ ] Bundle MDX 적용 안됨...
+
 ### Add Feature
-- [ ] Mobile Support
 - [ ] TOC for Blog Posts
+- [ ] Meta Tag Configuration    
 - [ ] Using Custom Command in Mathematical Equations
 - [ ] Using Citation
 - [ ] Support Search with Ctrl + Shift + F
+- [ ] Infinite Scroll
 
 
 ### 유지보수

@@ -1,0 +1,5 @@
+.home{
+    width: calc(100vw - 30px);
+    max-width: var(--desktop-min-width);
+    margin: 1rem auto;
+}

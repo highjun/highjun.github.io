@@ -1,12 +1,18 @@
 ---
 title: 'New features in v1'
 date: '2021-02-01'
-tags: ['next-js', 'tailwind', 'guide']
-draft: false
+keywords: ['next-js', 'tailwind', 'guide']
+isDraft: false
 image: "sample_20230220.webp"
+summary: "Sample Blog Post입니다.\n 확인용으로 써주세요!"
+length: "10 Min Read"
 ---
 
 ## Overview
+
+- [ ] CheckList?
+
+$\frac{1}{3}$
 
 A post on the new features introduced in v1.0. New features:
 

@@ -1,5 +1,7 @@
 import { getSortedBlogsData } from '@/lib/fetch'
 import PostCard from '@/components/PostCard'
+import styles from '@/styles/Home.module.css'
+import SEO from '@/components/SEO'
 
 
 export async function getStaticProps() {
@@ -10,15 +12,21 @@ export async function getStaticProps() {
 
 export default function Home({ blogPosts }) {
   return (
-    <main>
-      {<p>
-        We are preparing blogs for hard!
-        </p>}
-      {/* {
-        blogPosts.map(post => {
-          return <PostCard post={post} key={post["id"]} />
-        })
-      } */}
-    </main>
+    <>
+      <SEO title={"Sangjun's Blog: Home"}/>
+      <main className={styles.home}>
+        {
+          blogPosts.length > 0 ?
+            blogPosts.map(post =>
+              <PostCard post={post} key={post["id"]} />
+            )
+            :
+            <h3>
+              Blog has no content yet...
+            </h3>
+        }
+      </main>
+    </>
+
   )
 }

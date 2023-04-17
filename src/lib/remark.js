@@ -101,7 +101,7 @@ const remarkTOC = (options) => {
         })
 }
 
-const remarkVis = () => {
+const remarkVis = (options) => {
     return (tree) => {
         visit(tree, (node, index, parent) => {
             console.log(node);

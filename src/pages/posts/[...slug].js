@@ -1,8 +1,8 @@
-import customBundleMDX from '@/lib/mdx'
 import { getFiles } from '@/lib/util'
 import { MDX } from '@/components/Basics'
-
-import styles from '@/styles/Blog.module.css'
+import { getBlogDataByID } from '@/lib/fetch'
+import PostLayout from '@/components/PostLayout'
+import SEO from '@/components/SEO'
 
 const dir_name = 'data/blogs'
 
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
     return {
         paths: posts.map((post) => ({
             params: {
-                slug: [post.replace(/\.(mdx|md)/, '')],
+                slug: [post.replace(/\.md/, '')],
             },
         })),
         fallback: false,
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const post = await customBundleMDX(`data/blogs/${params.slug}.md`)
+    const post = await getBlogDataByID(params.slug);
     return { props: { post } }
 }
 
@@ -27,8 +27,11 @@ export default function Projects({ post }) {
     const { mdxSource, toc, frontMatter } = post
 
     return (
-        <div className={styles.container}>
-            <MDX mdxSource={mdxSource}/>
-        </div>
+        <>
+            <SEO title={["Post:", frontMatter.title].join(' ')} />
+            <PostLayout frontMatter={frontMatter}>
+                <MDX mdxSource={mdxSource} />
+            </PostLayout>
+        </>
     )
 }
