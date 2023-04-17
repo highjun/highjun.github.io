@@ -3,8 +3,6 @@ import { getAllPosts, getBlogDataByID } from '@/lib/fetch'
 import PostLayout from '@/components/PostLayout'
 import SEO from '@/components/SEO'
 
-const dir_name = 'data/posts'
-
 export async function getStaticPaths() {
     const posts = getAllPosts()
     return {
