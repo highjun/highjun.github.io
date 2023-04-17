@@ -47,7 +47,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: "highjun.github.io"
+      url: "https://highjun.github.io"
     runs-on: ubuntu-latest
     needs: build
     steps:
