@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 const Layout: React.FC<Readonly<{ children: React.ReactNode }>> = ({ children }) => (
   <html lang="en">
-    <body className="min-h-screen	flex flex-col">
-      <Navbar>
+    <body className="w-full min-h-screen flex flex-col">
+      <Navbar className="sticky top-0 z-1000 shadow-sm">
         <NavbarBrand as={Link} href="/">
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">{`😎 Sangjun's Blog`}</span>
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">{`Sangjun's Blog`}</span>
         </NavbarBrand>
         <NavbarToggle />
         <div className="flex md:order-2 hidden md:block">
@@ -29,13 +29,13 @@ const Layout: React.FC<Readonly<{ children: React.ReactNode }>> = ({ children })
           </div>
         </div>
         <NavbarCollapse>
-          <NavbarLink as={Link} href="#">
+          <NavbarLink href="#about">
             About
           </NavbarLink>
-          <NavbarLink as={Link} href="#">
+          <NavbarLink href="#projects">
             Projects
           </NavbarLink>
-          <NavbarLink href="#">Posts</NavbarLink>
+          <NavbarLink href="#posts">Posts</NavbarLink>
         </NavbarCollapse>
       </Navbar>
       <main className={"flex-grow"}>

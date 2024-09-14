@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 import colors from 'tailwindcss/colors';
 import flowbite from "flowbite-react/tailwind";
 
-
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,12 +13,11 @@ const config: Config = {
   theme: {
     colors: {
       primary: colors.blue
-    }
+    },
   },
   plugins: [
     flowbite.plugin(),
     require('flowbite-typography'),
-
   ],
 };
 export default config;
