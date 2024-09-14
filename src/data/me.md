@@ -1,0 +1,3 @@
+I am an HCI researcher and software engineer. I am currently pursuing a Ph.D. in the [School of Computing](https://cs.kaist.ac.kr/) at [KAIST](https://www.kaist.ac.kr/en/), under the supervision of [Professor Uichin Lee](https://scholar.google.co.kr/citations?user=Sc2pBzYAAAAJ).
+
+I am interested in **Personal Informatics systems** and **Conversational Agents**, and my research focuses on combining these two fields to create systems that help users efficiently understand and utilize the data they interact with and generate.
