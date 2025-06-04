@@ -1,8 +1,6 @@
 'use client'
 
 import AboutMe from "@/components/AboutMe";
-import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/data/projects";
 import Publications from "@/content/publication.mdx";
 
 const Home:React.FC = () => {

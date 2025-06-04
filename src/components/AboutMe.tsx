@@ -1,8 +1,7 @@
 'use client';
-import Image from 'next/image';
-import { useState } from 'react';
 import About from '@/content/about.mdx';
 import { profile } from '@/data/about';
+import { useState } from 'react';
 
 
 const AboutMe: React.FC = () => {
