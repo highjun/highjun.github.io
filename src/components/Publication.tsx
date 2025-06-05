@@ -4,7 +4,7 @@ import { Publication as PublicationType } from '@/types/Publication';
 const Publication: React.FC<PublicationType> = ({ title, venue, authors, links }) => {
     return (
         <div className="publication">
-            <strong className="text-lg italic">"{title}"</strong>
+            <strong className="text-lg italic">{title}</strong>
             <br />
             <em className="text-gray-700">{venue}</em>
             <br />

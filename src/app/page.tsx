@@ -3,7 +3,6 @@
 import AboutMe from "@/components/AboutMe";
 import ProjectCard from "@/components/ProjectCard";
 import Publication from "@/components/Publication";
-import Publications from "@/content/publication.mdx";
 import { projects } from "@/data/projects";
 import { publications } from "@/data/publications";
 
