@@ -1,8 +1,8 @@
 'use client';
+import { useState } from 'react';
 import About from '@/content/about.mdx';
 import { profile } from '@/data/about';
-import { useState } from 'react';
-
+import Icon from '@/components/Icon';
 
 const AboutMe: React.FC = () => {
   const [imgSrc, setImgSrc] = useState(profile.photo);
@@ -23,7 +23,33 @@ const AboutMe: React.FC = () => {
         </div>
       </div>
       <div className="text-center md:text-left prose prose-neutral max-w-none w-full">
-        <h1 className="text-2xl font-bold mt-2 mb-2 text-center md:text-left">{profile.name}</h1>
+        <div className="flex flex-col md:flex-row items-center md:justify-between mb-2 md:mb-0">
+          <div className="flex flex-row">
+            <h1 className="text-2xl font-bold mt-2 mb-2 text-center md:text-left">{profile.name}</h1>
+            <a
+              href="/pdf/SangjunPark_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 mb-2 ml-2 text-2xl text-center text-blue-600 hover:text-blue-800 hover:underline font-medium"
+            >
+              CV
+            </a>
+          </div>
+          <div className="flex gap-2">
+            {profile.contacts.map((contact) => (
+              <a
+                key={contact.icon}
+                href={contact.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-900"
+                title={contact.icon}
+              >
+                <Icon name={contact.icon} />
+              </a>
+            ))}
+          </div>
+        </div>
         <About />
       </div>
     </section>
