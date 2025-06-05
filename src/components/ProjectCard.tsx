@@ -7,7 +7,7 @@ const ProjectCard: React.FC<{
   link?: string;
 }> = ({ image, title, summary, link }) => {
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center w-[400px] md:flex-row md:w-full md:items-stretch border border-gray-100">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center w-[400px] max-w-full md:flex-row md:w-full md:items-stretch border border-gray-100">
       <div className="w-[300px] h-[225px] flex-shrink-0 bg-gray-100 flex items-center justify-center">
         <img
           src={image}
