@@ -5,7 +5,7 @@ export const profile = {
     contacts: [
       { icon: 'email', url: 'mailto:sangjun@kaist.ac.kr' },
       { icon: 'github', url: 'https://github.com/highjun' },
-      { icon: 'linked-in', url: 'https://www.linkedin.com/in/sangjun-park-3b2080229/' },
+      { icon: 'linked-in', url: 'https://www.linkedin.com/in/highjun/' },
       { icon: 'google-scholar', url: 'https://scholar.google.com/citations?user=esrgGaEAAAAJ&hl=en' },
     ],
   };
