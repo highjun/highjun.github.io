@@ -43,7 +43,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: "https://homepage.sangjun.dev"
+      url: "https://sangjun.dev"
     runs-on: ubuntu-latest
     needs: build
     steps:
